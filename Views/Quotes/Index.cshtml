@@ -1,0 +1,17 @@
+<div>
+    <h1>Here are the awesome quotes!</h1>
+    @{
+        foreach(var quote in ViewBag.Quotes)
+        {
+            <p>"@quote.QuoteContent"</p>
+            <p class="indent">-@quote.QuoterName at @quote.CreatedAt.ToString("hh:mm MMMM dd, yyyy")</p>
+            <a href="/like/@quote.QuoteId"><button>Like</button></a>
+            <p>@quote.Likes</p>
+            <a href="/update/@quote.QuoteId"><button>Update</button></a>
+            <form action="/delete/@quote.QuoteId" method="DELETE">
+                <button type="submit">Delete</button>
+            </form>
+            <hr/>
+        }
+    }
+</div>
